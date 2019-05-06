@@ -1,7 +1,15 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import HomePage from "./HomePage";
+import CoursesPage from "./CoursesPage";
 
 function App() {
-  return <h1>Hello World from App</h1>;
+  return (
+    <Router>
+      <Route path="/" component={HomePage} />
+      <Route path="/courses" component={CoursesPage} />
+    </Router>
+  );
 }
 
 export default App;
