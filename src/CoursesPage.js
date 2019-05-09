@@ -39,6 +39,18 @@ class CoursePage extends React.Component {
     this.setState({ courses });
   };
 
+  renderCourses = course => (
+    <tr key={course.id}>
+      <td>
+        <button onClick={this.handleDelete} name={course.id} type="button">
+          Delete
+        </button>
+      </td>
+      <td>{course.title}</td>
+      <td>{course.category}</td>
+    </tr>
+  );
+
   render() {
     return (
       <>
@@ -51,23 +63,7 @@ class CoursePage extends React.Component {
               <th>Category</th>
             </tr>
           </thead>
-          <tbody>
-            {this.state.courses.map(course => (
-              <tr key={course.id}>
-                <td>
-                  <button
-                    onClick={this.handleDelete}
-                    name={course.id}
-                    type="button"
-                  >
-                    Delete
-                  </button>
-                </td>
-                <td>{course.title}</td>
-                <td>{course.category}</td>
-              </tr>
-            ))}
-          </tbody>
+          <tbody>{this.state.courses.map(this.renderCourses)}</tbody>
         </table>
       </>
     );
