@@ -10,6 +10,7 @@ function App() {
       <Nav />
       <Route path="/" component={HomePage} exact />
       <Route path="/courses" component={CoursesPage} />
+      <Route path="/aboutus" component={CoursesPage} />
     </Router>
   );
 }
