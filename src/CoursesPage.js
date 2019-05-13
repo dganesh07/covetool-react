@@ -1,4 +1,6 @@
 import React from "react";
+import { getCourses, deleteCourse } from "./api/courseAPI";
+import { toast } from "react-toastify";
 
 class CoursePage extends React.Component {
   constructor(props) {
@@ -31,13 +33,29 @@ class CoursePage extends React.Component {
     //Option 3: Object spread
     //const courseCopy = [...this.state.course];
 
-    //Option USE THIS: ES6 filter
-    const courses = this.state.courses.filter(
-      course => course.id !== parseInt(idToDelete)
-    );
+    deleteCourse(idToDelete)
+      .then(response => {
+        //Option USE THIS: ES6 filter
+        const courses = this.state.courses.filter(
+          course => course.id !== parseInt(idToDelete)
+        );
 
-    this.setState({ courses });
+        //This is Async
+        this.setState({ courses }, () => {
+          toast.success("deleted");
+        });
+      })
+      .catch(error => {
+        console.log("OOPS! " + error);
+      });
   };
+
+  //Will run when component is mounted
+  componentDidMount() {
+    getCourses().then(courses => {
+      this.setState({ courses: courses });
+    });
+  }
 
   renderCourses = course => (
     <tr key={course.id}>
