@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 const ManageCoursePage = props => {
   //Hook. Using the useState hook. We use this its a functional component and
@@ -7,7 +8,7 @@ const ManageCoursePage = props => {
   const [course, setCourse] = useState({
     id: null,
     title: "",
-    authorId: null,
+    authorId: "",
     category: ""
   });
 
@@ -18,8 +19,14 @@ const ManageCoursePage = props => {
       [event.target.name]: event.target.value
     };
     setCourse(updatedCourse);
-    debugger;
   };
+
+  useEffect(() => {
+    //I just used this if to stop it from running during the first render as course will be empty
+    if (course.title) {
+      toast.success(`updated title to ${course.title}`);
+    }
+  });
 
   return (
     <form>
