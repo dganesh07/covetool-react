@@ -17,11 +17,17 @@ export function deleteCourse(courseId) {
 }
 
 export function saveCourse(course) {
-  return fetch(baseUrl + (course.id || ""), {
+  return fetch(baseUrl + "/" + (course.id || ""), {
     method: course.id ? "PUT" : "POST", //POST for create, PUT for update
     headers: { "content-type": "application/json" },
     body: JSON.stringify(course)
   })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+export function getCourseBySlug(slug) {
+  return fetch(baseUrl + "?slug=" + slug)
     .then(handleResponse)
     .catch(handleError);
 }

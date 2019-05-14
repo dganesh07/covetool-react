@@ -11,7 +11,7 @@
       "title": "Building Applications with React and Redux",
       "slug": "react-redux-react-router-es6",
       "authorId": 1,
-      "category": "JavaScript"
+      "category": "JavaScripti"
     },
     {
       "id": 6,
@@ -40,6 +40,30 @@
       "slug": "career-reboot-for-developer-mind",
       "authorId": 1,
       "category": "Career"
+    },
+    {
+      "id": 10,
+      "title": "test",
+      "authorId": "1",
+      "category": "hello",
+      "createdAt": 1557849635206,
+      "slug": "test"
+    },
+    {
+      "id": 11,
+      "title": "tres",
+      "authorId": "8",
+      "category": "sesd",
+      "createdAt": 1557849757691,
+      "slug": "tres"
+    },
+    {
+      "id": 12,
+      "title": "dfdf",
+      "authorId": "dfdf",
+      "category": "sesd",
+      "createdAt": 1557849779509,
+      "slug": "dfdf"
     }
   ],
   "authors": [

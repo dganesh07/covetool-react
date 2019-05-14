@@ -1,5 +1,6 @@
 import React from "react";
 import { getCourses, deleteCourse } from "./api/courseAPI";
+import { Redirect, Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 class CoursePage extends React.Component {
@@ -7,10 +8,9 @@ class CoursePage extends React.Component {
     super(props);
 
     this.state = {
-      courses: [
-        { id: 1, title: "Horses for dummies", category: "Pets" },
-        { id: 2, title: "Clean code", category: "Programming" }
-      ]
+      courses: [],
+      isAdmin: false,
+      redirectToAddCourses: false
     };
 
     //Binding in constructor
@@ -64,15 +64,25 @@ class CoursePage extends React.Component {
           Delete
         </button>
       </td>
-      <td>{course.title}</td>
+      <td>
+        <Link to={`/course/${course.slug}`}>{course.title}</Link>
+      </td>
       <td>{course.category}</td>
     </tr>
   );
 
+  handleAddCourseClick = event => {
+    this.setState({ redirectToAddCourses: true });
+  };
+
   render() {
     return (
       <>
+        {this.state.redirectToAddCourses && <Redirect to="/course" />}
         <h1>Courses</h1>
+        <button type="button" onClick={this.handleAddCourseClick}>
+          Add Course
+        </button>
         <table>
           <thead>
             <tr>
