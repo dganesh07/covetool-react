@@ -23,7 +23,7 @@ const TextInput = ({ id, label, name, value, onChange, error }) => {
 };
 
 TextInput.propTypes = {
-  value: PropTypes.oneOfType(["string", "number"]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   onChange: PropTypes.func.isRequired,
   error: PropTypes.string,
   id: PropTypes.string.isRequired,
