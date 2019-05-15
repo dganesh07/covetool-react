@@ -56,7 +56,7 @@ const ManageCoursePage = props => {
         props.history.push("/course");
       })
       .catch(error => {
-        toast.error("booo!save failed");
+        toast.error("booo! save failed");
       });
   };
 

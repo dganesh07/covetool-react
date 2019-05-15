@@ -4,7 +4,11 @@ import PropTypes from "prop-types";
 const TextInput = ({ id, label, name, value, onChange, error }) => {
   return (
     <div>
-      <label htmlFor={id}>{label}</label>
+      {label && (
+        <>
+          <label htmlFor={id}>{label}</label> <br />
+        </>
+      )}
       <br />
       <input
         type="text"
